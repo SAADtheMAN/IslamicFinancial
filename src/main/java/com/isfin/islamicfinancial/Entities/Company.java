@@ -18,7 +18,7 @@ public class Company {
     private FinancialRatios financialRatios;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
-    private List<ShariahCompliance> complianceRecords;
+    private List<ShariahCompilance> complianceRecords;
 
     // Getters and Setters
 }
