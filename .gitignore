@@ -1,3 +1,4 @@
+# Your local ignores
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
@@ -14,8 +15,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
-
+.idea/
 
 ### NetBeans ###
 /nbproject/private/
@@ -29,3 +29,40 @@ build/
 
 ### VS Code ###
 .vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors extras
+.project
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
