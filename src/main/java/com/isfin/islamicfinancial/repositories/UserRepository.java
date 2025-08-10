@@ -1,6 +1,6 @@
-package com.isfin.islamicfinancial.Repositories;
+package com.isfin.islamicfinancial.repositories;
 
-import com.isfin.islamicfinancial.Entities.User;
+import com.isfin.islamicfinancial.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

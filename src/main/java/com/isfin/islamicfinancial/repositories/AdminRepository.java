@@ -1,6 +1,6 @@
-package com.isfin.islamicfinancial.Repositories;
+package com.isfin.islamicfinancial.repositories;
 
-import com.isfin.islamicfinancial.Entities.Admin;
+import com.isfin.islamicfinancial.entities.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AdminRepository extends JpaRepository<Admin, Long> {
