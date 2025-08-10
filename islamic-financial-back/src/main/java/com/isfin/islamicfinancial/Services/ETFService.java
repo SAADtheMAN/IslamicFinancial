@@ -1,0 +1,36 @@
+package com.isfin.islamicfinancial.services;
+
+import com.isfin.islamicfinancial.entities.ETF;
+import com.isfin.islamicfinancial.repositories.ETFRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class ETFService {
+
+    private final ETFRepository etfRepository;
+
+    @Autowired
+    public ETFService(ETFRepository etfRepository){
+        this.etfRepository = etfRepository;
+    }
+
+    public List<ETF> getAllETFs() {
+        return etfRepository.findAll();
+    }
+
+    public Optional<ETF> getETFById(Long id) {
+        return etfRepository.findById(id);
+    }
+
+    public ETF saveETF(ETF etf) {
+        return etfRepository.save(etf);
+    }
+
+    public void deleteETF(Long id) {
+        etfRepository.deleteById(id);
+    }
+}
