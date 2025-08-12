@@ -12,7 +12,7 @@ public class FmpApiController {
     @Autowired
     private FmpApiService fmpApiService;
 
-    @GetMapping("/api/fmp/profile/{symbol}")
+    @GetMapping("/api/fmp/raw-profile/{symbol}")
     public String getProfile(@PathVariable String symbol) {
         return fmpApiService.getCompanyProfile(symbol);
     }
