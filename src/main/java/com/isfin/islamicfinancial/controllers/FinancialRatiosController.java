@@ -1,5 +1,6 @@
 package com.isfin.islamicfinancial.controllers;
 
+import com.isfin.islamicfinancial.dto.ComplianceResultDTO;
 import com.isfin.islamicfinancial.dto.FinancialRatiosDTO;
 import com.isfin.islamicfinancial.entities.FinancialRatios;
 import com.isfin.islamicfinancial.services.FinancialRatiosService;
@@ -50,12 +51,24 @@ public class FinancialRatiosController {
     }
   }
 
-  // New endpoint to get calculated ratios DTO
+  // Calculated Ratios Endpoint
   @GetMapping("/{id}/calculated")
   public ResponseEntity<FinancialRatiosDTO> getCalculatedRatios(@PathVariable Long id) {
     Optional<FinancialRatios> optionalRatios = financialRatiosService.getFinancialRatiosById(id);
     if (optionalRatios.isPresent()) {
       FinancialRatiosDTO dto = financialRatiosService.calculateRatios(optionalRatios.get());
+      return ResponseEntity.ok(dto);
+    } else {
+      return ResponseEntity.notFound().build();
+    }
+  }
+
+  // Shariah Compliance Endpoint
+  @GetMapping("/{id}/compliance")
+  public ResponseEntity<ComplianceResultDTO> checkCompliance(@PathVariable Long id) {
+    Optional<FinancialRatios> optionalRatios = financialRatiosService.getFinancialRatiosById(id);
+    if (optionalRatios.isPresent()) {
+      ComplianceResultDTO dto = financialRatiosService.evaluateCompliance(optionalRatios.get());
       return ResponseEntity.ok(dto);
     } else {
       return ResponseEntity.notFound().build();

@@ -1,5 +1,6 @@
 package com.isfin.islamicfinancial.services;
 
+import com.isfin.islamicfinancial.dto.ComplianceResultDTO;
 import com.isfin.islamicfinancial.dto.FinancialRatiosDTO;
 import com.isfin.islamicfinancial.entities.FinancialRatios;
 import com.isfin.islamicfinancial.repositories.FinancialRatiosRepository;
@@ -69,5 +70,15 @@ public class FinancialRatiosService {
     double profitabilityRatio = calculateProfitabilityRatio(financialRatios.getNetIncome(), financialRatios.getRevenue());
 
     return new FinancialRatiosDTO(debtRatio, currentRatio, liquidityRatio, profitabilityRatio);
+  }
+
+  // Shariah Compliance Evaluation
+  public ComplianceResultDTO evaluateCompliance(FinancialRatios ratios) {
+    ComplianceResultDTO dto = new ComplianceResultDTO();
+    dto.setDebtRatioCompliant(ratios.getDebtRatio() < 0.33);
+    dto.setInterestBearingAssetCompliant(ratios.getInterestBearingAssetRatio() < 0.33);
+    dto.setLiquidityRatioCompliant(ratios.getLiquidityRatio() < 0.33);
+    dto.setImpermissibleIncomeCompliant(ratios.getImpermissibleIncomeRatio() < 0.05);
+    return dto;
   }
 }
