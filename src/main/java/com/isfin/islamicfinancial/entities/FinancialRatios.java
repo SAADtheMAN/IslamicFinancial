@@ -26,6 +26,11 @@ public class FinancialRatios {
   private double interestBearingAssetRatio;
   private double liquidityRatio;
   private double impermissibleIncomeRatio;
+  @Column(name = "avg_market_cap36months", nullable = true)
+  private Double avgMarketCap36Months;
+
+  @Column(name = "impermissible_income", nullable = true)
+  private Double impermissibleIncome;
 
   @OneToOne
   @JoinColumn(name = "company_id", unique = true)
@@ -85,4 +90,11 @@ public class FinancialRatios {
 
   public ETF getEtf() { return etf; }
   public void setEtf(ETF etf) { this.etf = etf; }
+
+  public Double getAvgMarketCap36Months() { return avgMarketCap36Months; }
+  public void setAvgMarketCap36Months(Double avgMarketCap36Months) { this.avgMarketCap36Months = avgMarketCap36Months; }
+
+  public Double getImpermissibleIncome() { return impermissibleIncome; }
+  public void setImpermissibleIncome(Double impermissibleIncome) { this.impermissibleIncome = impermissibleIncome; }
+
 }
