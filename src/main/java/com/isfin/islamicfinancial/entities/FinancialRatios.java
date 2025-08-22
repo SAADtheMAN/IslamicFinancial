@@ -32,6 +32,7 @@ public class FinancialRatios {
   @Column(name = "impermissible_income", nullable = true)
   private Double impermissibleIncome;
 
+
   @OneToOne
   @JoinColumn(name = "company_id", unique = true)
   private Company company;
