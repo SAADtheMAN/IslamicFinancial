@@ -1,0 +1,10 @@
+<div *ngIf="companyProfile; else loading">
+  <h2>{{ companyProfile.symbol }} - {{ companyProfile.price | currency:'USD' }}</h2>
+  <p><strong>Average Volume:</strong> {{ companyProfile.volAvg | number }}</p>
+  <p><strong>Market Cap:</strong> {{ companyProfile.mktCap | number }}</p>
+</div>
+
+<ng-template #loading>
+  <p>Loading company profile...</p>
+</ng-template>
+y
